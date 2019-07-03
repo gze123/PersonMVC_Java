@@ -1,8 +1,9 @@
-import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class PersonController {
     private Person model;
     private PersonView view;
+    private int age;
 
     public PersonController(Person model,PersonView view){
         this.model = model;
@@ -31,16 +32,25 @@ public class PersonController {
         return model.getGender();
     }
 
-    public void setPersonDob(Calendar dob){
-        model.setDob(dob);
+    public void setPersonDob(GregorianCalendar gregorianCalendar){
+        model.setDob(gregorianCalendar);
     }
 
-    public Calendar getPersonAge(){
-        return model.getDob();
+
+
+    public int calculateAge(){
+        GregorianCalendar gregorianCalendarNow  = new GregorianCalendar();
+        GregorianCalendar gregorianCalendarUser = model.getDob();
+        age = gregorianCalendarNow.get(1) - gregorianCalendarUser.get(1);
+        return age;
     }
+
+
 
     public void updateView(){
-        view.printPersonDetails(model.getFirstName(),model.getGender(),model.getDob());
+
+        view.printPersonDetails(getPersonName(),model.getGender(),calculateAge());
+
     }
 
 }

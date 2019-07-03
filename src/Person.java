@@ -1,17 +1,19 @@
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Person {
     private String firstName,lastName,gender;
     private Calendar dob;
     private int age;
+    private GregorianCalendar gregorianCalendar;
     public Person(){
     }
 
-    public Person(String firstName,String lastName,String gender,Calendar dob){
+    public Person(String firstName,String lastName,String gender,GregorianCalendar gregorianCalendar){
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.dob = dob;
+        this.gregorianCalendar = gregorianCalendar;
     }
 
 
@@ -39,16 +41,20 @@ public class Person {
         this.gender = gender;
     }
 
+
+    public void setAge(int age) { this.age  =age;
+    }
+
     public int getAge() {
         return age;
     }
 
-    public Calendar getDob(){
-        return dob;
+    public GregorianCalendar getDob(){
+        return gregorianCalendar;
     }
 
-    public void setDob(Calendar dob) {
-        this.dob = dob;
+    public void setDob(GregorianCalendar gregorianCalendar) {
+        this.gregorianCalendar = gregorianCalendar;
     }
 
 
